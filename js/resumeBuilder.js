@@ -18,7 +18,6 @@ This is empty on purpose! Your code to build the resume will go here.
    "welcomeMessage": "Hello! I'm so glad you're here!",
    "skills": ["Frontend Development", "wireframing", "prototyping", "Product Management"],
    "biopic": "https://marcanthonyrosa.github.io/images/avatar2.jpg",
-   "display": ""
  };
 
  education = {
@@ -45,7 +44,6 @@ This is empty on purpose! Your code to build the resume will go here.
        "url": "https://www.udemy.com/complete-web-developer-course"
      }
    ],
-   "display": ""
  };
 
 work = {
@@ -74,7 +72,6 @@ work = {
       "description": "Red Ventures manages PPC and online lead generation for dozens of premier businesses"
     }
   ],
-  "display": ""
 };
 
 projects = {
@@ -92,49 +89,37 @@ projects = {
       "images": ["http://lorempixel.com/300/200/","http://placekitten.com/300/200"]
     }
   ],
-  "display": ""
 };
 
-var formattedHeader = HTMLheaderName.replace("%data%", bio.name);
-var formattedHeaderRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
-var formattedSite = HTMLcontactGeneric.replace("%contact%", "Website");
-var formattedSite = formattedSite.replace("%data%", bio.contacts.personalSite);
-var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-var generateSkills = function() {
-  var finalOutput = "";
-  for (var i =0; i< bio.skills.length; i++) {
-    var skills = HTMLskills;
-    finalOutput = finalOutput + skills.replace("%data%", bio.skills[i]);
-  }
-  return finalOutput;
-};
 
 bio.display = function() {
-  $("#header").prepend(formattedHeaderRole);
-  $("#header").prepend(formattedHeader);
-  $("#topContacts").append(formattedMobile);
-  $("#topContacts").append(formattedEmail);
-  $("#topContacts").append(formattedGitHub);
-  $("#topContacts").append(formattedSite);
-  $("#topContacts").append(formattedTwitter);
-  $("#topContacts").append(formattedLocation);
-  $("#header").append(formattedBioPic);
-  $("#header").append(formattedWelcome);
-  $("#header").append(HTMLskillsStart);
+  var formattedHeader = HTMLheaderName.replace("%data%", bio.name);
+  var formattedHeaderRole = HTMLheaderRole.replace("%data%", bio.role);
+  var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+  var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+  var formattedSite = HTMLcontactGeneric.replace("%contact%", "Website");
+  var formattedSite = formattedSite.replace("%data%", bio.contacts.personalSite);
+  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+  var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+  var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+  var generateSkills = function() {
+    var finalOutput = "";
+    for (var i =0; i< bio.skills.length; i++) {
+      var skills = HTMLskills;
+      finalOutput = finalOutput + skills.replace("%data%", bio.skills[i]);
+    }
+    return finalOutput;
+  };
+
+  $("#header").prepend(formattedHeader,formattedHeaderRole )
+  $("#topContacts").append(formattedMobile, formattedEmail, formattedGitHub, formattedSite, formattedTwitter, formattedLocation);
+  $("#header").append(formattedBioPic, formattedWelcome, HTMLskillsStart);
   $("#skills-h3").append(generateSkills());
-  $("#footerContacts").append(formattedMobile);
-  $("#footerContacts").append(formattedEmail);
-  $("#footerContacts").append(formattedGitHub);
-  $("#footerContacts").append(formattedSite);
-  $("#footerContacts").append(formattedTwitter);
-  $("#footerContacts").append(formattedLocation);
+  $("#footerContacts").append(formattedMobile, formattedEmail, formattedGitHub, formattedSite, formattedTwitter, formattedLocation);
 };
 
 bio.display();

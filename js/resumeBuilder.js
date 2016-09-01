@@ -69,7 +69,24 @@ work = {
       "title": "Paid Search Analyst",
       "location": "Charlotte, NC",
       "dates": "2013-2013",
-      "description": "Red Ventures manages PPC and online lead generation for dozens of premier businesses"
+      "description": "Red Ventures manages PPC and online lead generation for dozens of premier businesses",
+      "website": "https://www.redventures.com"
+    },
+    {
+      "employer": "Cellnovo",
+      "title": "Marketing Analyst",
+      "location": "London, England, United Kingdom",
+      "dates": "2012-2012",
+      "description": "Cellnovo is a medical device company based in the UK",
+      "website": "https://www.cellnovo.com"
+    },
+    {
+      "employer": "Cannonball Projects, Inc",
+      "title": "Co-Founder, CEO",
+      "location": "New York City, NY",
+      "dates": "2011-2011",
+      "description": "Cannonball is a social planning app",
+      "website": "https://www.mycannonball.com"
     }
   ],
 };
@@ -126,7 +143,7 @@ bio.display = function() {
 work.display = function () {
   var generateWork = function () {
     var finalOutput = "";
-    for (var i=0; i < projects.projects.length; i++) {
+    for (var i=0; i < work.jobs.length; i++) {
       var workOutput = "";
       var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
       if (work.jobs[i].website) {
